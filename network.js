@@ -1,23 +1,6 @@
 "use strict";
 
-var postReceiveError = function () {
-    console.log('post receive error');
-};
-
-function createPostReceiveError(isInTestMode) {
-    if (isInTestMode) {
-        return function () {
-            console.log("Unit test mode. You can add new behavior here.");
-        }
-    }
-
-    return postReceiveError;
-}
-
-function createNetwork(isInTestMode) {
-    isInTestMode = isInTestMode || false;
-    var postReceiveError = createPostReceiveError(isInTestMode);
-
+function createNetwork() {
     var serialized = false;
     var failureSent = false;
     var mutex = getMutex();
@@ -42,8 +25,7 @@ function createNetwork(isInTestMode) {
 
         if (!failureSent) {
             failureSent = true;
-
-            postReceiveError();
+            console.log('post receive error');
         }
 
         //...
@@ -62,8 +44,4 @@ function freeLibrary() {
     //...
 }
 
-function runUnitTests() {
-    createNetwork(true).init();
-}
-
-createNetwork(false).init();
+createNetwork().init();
