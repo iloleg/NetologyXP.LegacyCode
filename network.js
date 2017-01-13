@@ -4,8 +4,13 @@ var postReceiveError = function () {
     console.log('post receive error');
 };
 
+function createPostReceiveError(isInTestMode) {
+    return postReceiveError;
+}
+
 function createNetwork(isInTestMode) {
     isInTestMode = isInTestMode || false;
+    var postReceiveError = createPostReceiveError(isInTestMode);
 
     var serialized = false;
     var failureSent = false;
