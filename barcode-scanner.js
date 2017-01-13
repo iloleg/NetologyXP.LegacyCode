@@ -28,9 +28,19 @@ function print(line) {
     console.log(line);
 }
 
-function runUnitTest() {
+function createPrinter() {
+    return {
+        print: print
+    }
 
-    scanBarCode("123456", print);
+    function print(line) {
+        console.log('unit testing run')
+    }
+}
+function runUnitTest() {
+    var printer = createPrinter();
+
+    scanBarCode("123456", printer.print);
 
     // Item: milk
     // Price: 105$ (tax included)
