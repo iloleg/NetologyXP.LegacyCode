@@ -29,12 +29,19 @@ function print(line) {
 }
 
 function createPrinter() {
+    var lines = [];
+
     return {
-        print: print
+        print: print,
+        getPrintedLines: getPrintedLines
     }
 
     function print(line) {
-        console.log('unit testing run')
+        lines.push(line);
+    }
+
+    function getPrintedLines() {
+        return lines;
     }
 }
 function runUnitTest() {
@@ -42,8 +49,23 @@ function runUnitTest() {
 
     scanBarCode("123456", printer.print);
 
-    // Item: milk
-    // Price: 105$ (tax included)
+    var lines = printer.getPrintedLines();
+
+    if (lines[0] !== "Item: milk") {
+        console.log("TEST FAILED!");
+        console.log("Expected: " + "Item: milk");
+        console.log("Actual: " + lines[0]);
+        return;
+    }
+
+    if (lines[1] !== "Price: 105$ (tax included)") {
+        console.log("TEST FAILED");
+        console.log("Expected: " + "Price: 105$ (tax included)");
+        console.log("Actual: " + lines[1]);
+        return;
+    }
+
+    console.log("TEST PASSED");
 }
 
 runUnitTest();
