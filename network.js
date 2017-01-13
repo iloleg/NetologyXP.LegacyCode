@@ -25,13 +25,12 @@ function createNetwork() {
 
         if (!failureSent) {
             failureSent = true;
-
             console.log('post receive error');
         }
 
         //...
     }
-};
+}
 
 function getMutex() {
     return {
@@ -39,11 +38,10 @@ function getMutex() {
             //...
         }
     };
-};
+}
 
 function freeLibrary() {
     //...
-};
-
+}
 
 createNetwork().init();
