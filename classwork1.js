@@ -1,11 +1,13 @@
-
 // глобальные методы, нужны, чтобы сделать код работоспособным
 function PostRecieveError() {
     console.log('hello');
     //...
 }
 function getMutex() {
-    return {Unlock : function() { }};
+    return {
+        Unlock: function () {
+        }
+    };
 }
 
 function FreeLibrary() {
@@ -34,7 +36,8 @@ function CreateNetwork(isTesting) {
     var failureSent = false;
     var mutex = getMutex();
     var refCount = 0;
-    var SOCKETCALLBACK = function() {};
+    var SOCKETCALLBACK = function () {
+    };
 
     return {
         init: InitNetwork
