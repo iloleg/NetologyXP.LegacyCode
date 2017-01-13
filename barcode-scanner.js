@@ -20,8 +20,12 @@ function scanBarCode(barcode) {
 
     price = price * (1 + tax);
 
-    console.log("Item: " + item);
-    console.log("Price: " + price + "$ (tax included)")
+    print("Item: " + item);
+    print("Price: " + price + "$ (tax included)")
+}
+
+function print(line) {
+    console.log(line);
 }
 
 function runUnitTest() {
