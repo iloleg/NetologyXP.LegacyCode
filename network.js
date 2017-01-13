@@ -1,5 +1,9 @@
 "use strict";
 
+var postReceiveError = function () {
+    console.log('post receive error');
+};
+
 function createNetwork() {
     var serialized = false;
     var failureSent = false;
@@ -25,7 +29,8 @@ function createNetwork() {
 
         if (!failureSent) {
             failureSent = true;
-            console.log('post receive error');
+
+            postReceiveError();
         }
 
         //...
