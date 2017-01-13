@@ -5,6 +5,12 @@ var postReceiveError = function () {
 };
 
 function createPostReceiveError(isInTestMode) {
+    if (isInTestMode) {
+        return function () {
+            console.log("Unit test mode. You can add new behavior here.");
+        }
+    }
+
     return postReceiveError;
 }
 
@@ -54,6 +60,10 @@ function getMutex() {
 
 function freeLibrary() {
     //...
+}
+
+function runUnitTests() {
+    createNetwork(true).init();
 }
 
 createNetwork(false).init();
