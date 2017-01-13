@@ -4,7 +4,9 @@ var postReceiveError = function () {
     console.log('post receive error');
 };
 
-function createNetwork() {
+function createNetwork(isInTestMode) {
+    isInTestMode = isInTestMode || false;
+
     var serialized = false;
     var failureSent = false;
     var mutex = getMutex();
@@ -49,4 +51,4 @@ function freeLibrary() {
     //...
 }
 
-createNetwork().init();
+createNetwork(false).init();
