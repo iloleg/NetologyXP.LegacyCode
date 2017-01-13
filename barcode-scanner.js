@@ -24,4 +24,13 @@ function scanBarCode(barcode) {
     console.log("Price: " + price + "$ (tax included)")
 }
 
+function runUnitTest() {
+
+    scanBarCode("123456");
+
+    // Item: milk
+    // Price: 105$ (tax included)
+}
+
+runUnitTest();
 scanBarCode("123456");
