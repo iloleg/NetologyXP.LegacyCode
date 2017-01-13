@@ -1,6 +1,6 @@
 "use strict";
 
-function scanBarCode(barcode) {
+function scanBarCode(barcode, print) {
     var item = '';
     var price = 0;
     if (barcode == "123456") {
@@ -30,11 +30,11 @@ function print(line) {
 
 function runUnitTest() {
 
-    scanBarCode("123456");
+    scanBarCode("123456", print);
 
     // Item: milk
     // Price: 105$ (tax included)
 }
 
 runUnitTest();
-scanBarCode("123456");
+scanBarCode("123456", print);
