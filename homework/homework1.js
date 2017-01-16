@@ -17,6 +17,9 @@ function checkURL() {
         //console.log("page title: " + document.title);
 
         // parse url to jquery
+        // Здесь можно добавить шов loadURL
+        // и сделать разрыв зависемостей с возратом да или нет
+
         loadURL(url + location.search, container);
     } else {
 

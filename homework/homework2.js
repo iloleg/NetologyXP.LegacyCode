@@ -16,7 +16,14 @@ function formSetEditReport(idReport) {
         $('#report_submit').val(ReportPlugin.createReportString);
     }
 
-    toggleReportType(report.type);
+    //
+    // разрываем зависимость processReportType(),
+    // и возврщаем true
+
+    // processReportType(report.type, test);
+
+    toggleReportType(report.type); // show
+
 
     $('#report_description').html(report.description);
     $('#report_segment').find('option[value=' + report.idsegment + ']').prop('selected', 'selected');
@@ -32,7 +39,21 @@ function formSetEditReport(idReport) {
         $('.' + report.type + ' [report-unique-id=' + report.reports[key] + ']').prop('checked', 'checked');
     }
 
+
+    // разрываем зависимость processReportType(),
+    // и возврщаем true
+    //processReportParameters(report.type, report.parameters, test);
+
     updateReportParametersFunctions[report.type](report.parameters);
+
 
     $('#report_idreport').val(idReport);
 }
+
+// test
+//function assert(idReport) {
+//    formSetEditReport(idReport, true);
+//}
+
+// run test
+//assert(1);

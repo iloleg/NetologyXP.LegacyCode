@@ -9,17 +9,21 @@ player.showHighScoreList = function(pageToken) {
             timeSpan: 'all_time',
             pageToken: pageToken,
             maxResults: '10'});
+    // шов
     request.execute(
         function(response) {
+            //шов
             console.log('High score', response);
             if (response.error) {
                 alert('Error ' + response.error.code + ': ' + response.message);
                 return;
             }
             var root = document.getElementById('highScoreListDiv');
-            player.createPlayerList(root, response.items, true);
+            //шов
+            player.createPlayerList(root, response.items, true);//show
             if (response.prevPageToken) {
                 root.appendChild(
+                    //шов
                     utilities.createButton('Prev', response.prevPageToken,
                         function(event) {
                             player.showHighScoreList(event.target.value);
@@ -27,7 +31,8 @@ player.showHighScoreList = function(pageToken) {
             }
             if (response.nextPageToken) {
                 root.appendChild(
-                    utilities.createButton('Prev', response.prevPageToken,
+                    //шов
+                    utilities.createButton('Prev', response.prevPageToken,//show
                         function(event) {
                             player.showHighScoreList(event.target.value);
                         }));
